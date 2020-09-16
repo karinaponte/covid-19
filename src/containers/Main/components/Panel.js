@@ -1,12 +1,11 @@
 import React, { memo } from 'react'
-import RefreshIcon from '../../../assets/images/refresh.svg'
 import { Card, Typography, Button, Select, MenuItem } from '../../../components'
 import COUNTRIES from '../../../commons/constants/countries'
 import { CardPanelContentStyled, ItemStyled } from './style'
 
 const navigatorHasShare = navigator.share
 
-function Panel({ updateAt, onChange, data, country, getCoviddata }) {
+function Panel({ updateAt, onChange, data, country, getCovidData }) {
   const { cases, recovered, deaths, todayCases, todayDeaths } = data
 
   const renderCountries = (country, index) => (
@@ -18,7 +17,7 @@ function Panel({ updateAt, onChange, data, country, getCoviddata }) {
     </MenuItem>
   )
 
-  const textCovid19 = `País: ${country} - recuperados: ${recovered}`
+  const textCovid19 = `País: ${country} - recuperados: ${recovered} - total de casos: ${cases} - total de mortes: ${deaths} - casos hoje: ${todayCases} - mortes hoje: ${todayDeaths}`
 
   const copyInfo = () => {
     navigator.clipboard.writeText(textCovid19)
